@@ -3,288 +3,88 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="FORGE 是一套面向健身与减脂人群的个性化训练、饮食与打卡工具。"
-    />
-    <title>FORGE / 你的训练节奏</title>
+    <meta name="theme-color" content="#101418" />
+    <meta name="description" content="FORGE 是一套拥有训练、营养、进度和个性化配置工作区的健身操作系统。" />
+    <title>FORGE / Personal Fitness OS</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700;900&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="noise" aria-hidden="true"></div>
-    <header class="site-header">
-      <a class="brand" href="#top" aria-label="FORGE 首页">
-        <span class="brand-mark">F</span>
-        <span>FORGE</span>
-        <small>PERSONAL FITNESS OS</small>
-      </a>
-      <nav class="main-nav" aria-label="主导航">
-        <a href="#plan">训练计划</a>
-        <a href="#fuel">今日食谱</a>
-        <a href="#checkin">打卡</a>
-        <a href="#mindset">激励</a>
-      </nav>
-      <button class="icon-button menu-button" id="menuButton" type="button" aria-label="打开菜单" title="打开菜单">
-        <span></span><span></span>
-      </button>
-      <a class="header-cta" href="#setup">开始定制 <span>↗</span></a>
-    </header>
+    <div class="ambient ambient-one" aria-hidden="true"></div>
+    <div class="ambient ambient-two" aria-hidden="true"></div>
+    <div class="app-shell">
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar-top">
+          <a class="brand" href="#" data-view="dashboard" aria-label="FORGE 首页">
+            <span class="brand-mark">F</span>
+            <span class="brand-name">FORGE</span>
+            <small>PERSONAL FITNESS OS</small>
+          </a>
+          <button class="sidebar-close icon-button" id="sidebarClose" type="button" aria-label="关闭导航">×</button>
+        </div>
+        <div class="profile-chip">
+          <div class="profile-avatar" id="profileAvatar">F</div>
+          <div><span class="label-mono">YOUR CURRENT MODE</span><strong id="sidebarGoal">增肌 / 变强</strong></div>
+          <span class="status-dot"></span>
+        </div>
+        <nav class="workspace-nav" aria-label="应用工作区">
+          <p class="nav-heading">WORKSPACE</p>
+          <button class="nav-item active" type="button" data-view="dashboard"><span class="nav-icon">⌂</span><span>今日总览</span><kbd>01</kbd></button>
+          <button class="nav-item" type="button" data-view="workout"><span class="nav-icon">↗</span><span>训练计划</span><kbd>02</kbd></button>
+          <button class="nav-item" type="button" data-view="nutrition"><span class="nav-icon">◒</span><span>营养食谱</span><kbd>03</kbd></button>
+          <button class="nav-item" type="button" data-view="progress"><span class="nav-icon">⌁</span><span>我的进度</span><kbd>04</kbd></button>
+          <p class="nav-heading nav-heading-spaced">PERSONALIZE</p>
+          <button class="nav-item" type="button" data-view="profile"><span class="nav-icon">◎</span><span>我的档案</span><kbd>05</kbd></button>
+        </nav>
+        <div class="sidebar-quote"><span class="quote-symbol">“</span><p id="sidebarQuote">你不需要等到有动力，先完成一个热身组。</p><small>FORGE NOTE / 02</small></div>
+        <div class="sidebar-bottom"><span class="label-mono">BUILD 02.1</span><span class="live-pill"><i></i> LOCAL SYNC</span></div>
+      </aside>
 
-    <main id="top">
-      <section class="hero section-shell">
-        <div class="hero-copy">
-          <p class="eyebrow"><span class="pulse-dot"></span> YOUR NEXT REP STARTS HERE</p>
-          <h1>把今天，<br /><em>练成</em>更好的自己。</h1>
-          <p class="hero-intro">
-            先告诉我们你的目标和起点。FORGE 会把科学训练原则翻译成一份可以马上执行的日程。
-          </p>
-          <div class="hero-actions">
-            <a class="button button-primary" href="#setup">生成我的计划 <span>→</span></a>
-            <a class="text-link" href="#method">查看方法依据 <span>↓</span></a>
-          </div>
-          <div class="hero-stats">
-            <div><strong>150+</strong><span>每周建议有氧分钟</span></div>
-            <div><strong>2×</strong><span>每周最低力量训练天</span></div>
-            <div><strong>1.4–2.0</strong><span>蛋白质 g/kg/天</span></div>
-          </div>
-        </div>
-        <div class="hero-visual">
-          <img
-            src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1200&q=88"
-            alt="健身房中的力量训练场景"
-          />
-          <div class="image-note image-note-top">01 / BUILD YOUR BASE</div>
-          <div class="image-note image-note-bottom">CONSISTENCY<br /><strong>OVER INTENSITY</strong></div>
-          <div class="vertical-label">FORGE YOUR RHYTHM</div>
-        </div>
-      </section>
+      <div class="main-shell">
+        <header class="topbar">
+          <div class="topbar-left"><button class="icon-button menu-toggle" id="menuToggle" type="button" aria-label="打开导航">☰</button><div class="breadcrumb"><span>FORGE</span><i>/</i><strong id="breadcrumbTitle">今日总览</strong></div></div>
+          <div class="topbar-actions"><span class="top-date" id="topDate">SAT, AUG 22 2026</span><button class="icon-button top-action" id="quoteQuickButton" type="button" title="换一句激励语录">✦</button><button class="user-button" type="button" data-view="profile"><span class="tiny-avatar" id="topAvatar">F</span><span class="user-button-name">我的档案</span><span>⌄</span></button></div>
+        </header>
 
-      <section class="setup-section section-shell" id="setup">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">01 / YOUR STARTING POINT</p>
-            <h2>先定方向，<br /><span>再安排每一步。</span></h2>
-          </div>
-          <p class="section-description">
-            这不是考试，没有“正确答案”。你的训练时间、器械条件和经验，会决定计划的复杂度。
-          </p>
-        </div>
-        <form class="profile-form" id="profileForm">
-          <div class="form-topline">
-            <span>PROFILE SETUP</span>
-            <span id="formProgress">01 / 06</span>
-          </div>
-          <div class="form-grid">
-            <fieldset class="form-field form-field-wide">
-              <legend>你现在更想做什么？</legend>
-              <div class="choice-grid choice-grid-goal">
-                <label class="choice-card">
-                  <input type="radio" name="goal" value="strength" checked />
-                  <span class="choice-icon">↗</span>
-                  <span class="choice-title">增肌 / 变强</span>
-                  <span class="choice-caption">建立力量，塑造肌肉线条</span>
-                </label>
-                <label class="choice-card">
-                  <input type="radio" name="goal" value="fatloss" />
-                  <span class="choice-icon">◒</span>
-                  <span class="choice-title">减脂 / 变轻盈</span>
-                  <span class="choice-caption">保留肌肉，稳定降低体脂</span>
-                </label>
-              </div>
-            </fieldset>
-            <label class="form-field">
-              <span>已经坚持多久？</span>
-              <select name="experience">
-                <option value="new">刚开始 / 还没开始</option>
-                <option value="early">1–6 个月</option>
-                <option value="steady">6–12 个月</option>
-                <option value="advanced">1 年以上</option>
-              </select>
-            </label>
-            <label class="form-field">
-              <span>每周能训练几天？</span>
-              <select name="days">
-                <option value="3">3 天</option>
-                <option value="4" selected>4 天</option>
-                <option value="5">5 天</option>
-              </select>
-            </label>
-            <label class="form-field">
-              <span>每次可用时长</span>
-              <select name="duration">
-                <option value="30">30 分钟</option>
-                <option value="45" selected>45 分钟</option>
-                <option value="60">60 分钟</option>
-              </select>
-            </label>
-            <label class="form-field">
-              <span>主要训练环境</span>
-              <select name="equipment">
-                <option value="home">居家 / 徒手</option>
-                <option value="basic" selected>家用基础器械</option>
-                <option value="gym">健身房</option>
-              </select>
-            </label>
-            <label class="form-field">
-              <span>年龄</span>
-              <input name="age" type="number" min="14" max="80" value="28" required />
-            </label>
-            <label class="form-field">
-              <span>身高 / 体重</span>
-              <div class="dual-input">
-                <input name="height" type="number" min="120" max="230" value="170" required aria-label="身高，厘米" />
-                <span>cm</span>
-                <input name="weight" type="number" min="35" max="250" step="0.1" value="65" required aria-label="体重，公斤" />
-                <span>kg</span>
-              </div>
-            </label>
-            <label class="form-field">
-              <span>性别（用于能量估算）</span>
-              <select name="sex">
-                <option value="female">女性</option>
-                <option value="male">男性</option>
-              </select>
-            </label>
-          </div>
-          <div class="form-footer">
-            <p><span class="info-icon">i</span> 计划适合一般健康成人。若有伤病、慢性疾病、孕期或用药情况，请先咨询专业人士。</p>
-            <button class="button button-dark" type="submit">生成我的专属计划 <span>→</span></button>
-          </div>
-        </form>
-      </section>
+        <main class="workspace">
+          <section class="view active" id="view-dashboard" data-view-panel="dashboard">
+            <div class="welcome-row"><div><p class="kicker"><span class="live-dot"></span> YOUR PERSONAL TRAINING SYSTEM</p><h1>早上好，<br /><em>今天也出现。</em></h1><p class="welcome-copy">把注意力放在下一组、下一餐和下一次呼吸。剩下的，让时间来完成。</p></div><div class="hero-streak"><span class="label-mono">CURRENT STREAK</span><strong><span id="heroStreak">0</span><small> DAYS</small></strong><div class="mini-progress"><span id="heroStreakBar"></span></div><small class="hero-streak-note" id="heroStreakNote">今天的第一步还在等你。</small></div></div>
+            <div class="dashboard-hero"><div class="hero-visual"><img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1400&q=90" alt="健身房中进行力量训练的人" /><div class="hero-visual-overlay"></div><div class="hero-visual-top"><span>FOCUS / 01</span><span>FORGE YOUR RHYTHM</span></div><div class="hero-visual-bottom"><div><strong id="heroSessionTitle">今日训练</strong><span id="heroSessionMeta">生成计划后开始你的第一个训练日</span></div></div><button class="floating-play" type="button" data-view="workout" title="打开今日训练">↗</button></div><div class="today-command"><div class="command-header"><span class="label-mono">TODAY'S COMMAND</span><span class="command-status">READY</span></div><div class="command-title"><span class="command-number">01</span><div><h2 id="dashboardSessionTitle">今天，先从热身开始。</h2><p id="dashboardSessionSubtitle">你的今日训练会出现在这里。</p></div></div><div class="command-metrics"><div><span>预计时长</span><strong id="dashboardDuration">45<small> min</small></strong></div><div><span>训练类型</span><strong id="dashboardType">RESET</strong></div></div><button class="button button-lime button-full" type="button" data-view="workout">打开训练计划 <span>→</span></button></div></div>
+            <div class="metric-grid"><article class="metric-card metric-card-dark"><span class="label-mono">WEEKLY TRAINING</span><strong id="metricTrainingDays">4<span> DAYS</span></strong><small>已按你的档案生成</small><div class="metric-spark spark-lime"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></article><article class="metric-card"><span class="label-mono">DAILY PROTEIN</span><strong id="metricProtein">104–130<span> G</span></strong><small>基于体重的建议区间</small><div class="metric-bar"><span id="proteinBar"></span></div></article><article class="metric-card metric-card-coral"><span class="label-mono">WEEKLY CONSISTENCY</span><strong id="metricConsistency">0<span>%</span></strong><small>完成训练或主动恢复</small><div class="metric-bar dark-bar"><span id="consistencyBar"></span></div></article><article class="metric-card metric-card-blue"><span class="label-mono">ENERGY START</span><strong id="metricCalories">2,100<span> KCAL</span></strong><small>动态估算起点</small><button class="mini-link" type="button" data-view="nutrition">查看营养 ↗</button></article></div>
+            <div class="section-row-head"><div><p class="kicker">NEXT IN YOUR WEEK</p><h2>接下来怎么走<span>.</span></h2></div><button class="text-button" type="button" data-view="workout">查看完整周计划 <span>→</span></button></div>
+            <div class="week-strip" id="dashboardWeekStrip"></div>
+          </section>
 
-      <section class="dashboard-section section-shell" id="plan">
-        <div class="section-heading section-heading-tight">
-          <div>
-            <p class="eyebrow">02 / YOUR WEEK AT A GLANCE</p>
-            <h2>你的训练节奏<span class="accent-dot">.</span></h2>
-          </div>
-          <div class="dashboard-meta">
-            <span id="planLabel">等待你的档案</span>
-            <button class="small-button" id="editProfile" type="button">重新设置 <span>↗</span></button>
-          </div>
-        </div>
-        <div class="dashboard-grid">
-          <aside class="side-panel">
-            <div class="mini-profile">
-              <div class="avatar" id="avatarLetter">F</div>
-              <div><span class="muted-label">CURRENT MODE</span><strong id="goalLabel">增肌 / 变强</strong></div>
-            </div>
-            <div class="side-rule"></div>
-            <div class="metric-list">
-              <div><span>本周训练</span><strong id="trainingDaysMetric">4 <small>天</small></strong></div>
-              <div><span>今日总时长</span><strong id="todayDurationMetric">45 <small>min</small></strong></div>
-              <div><span>建议蛋白</span><strong id="proteinMetric">104–130 <small>g</small></strong></div>
-            </div>
-            <div class="tip-box">
-              <span class="tip-mark">✦</span>
-              <div><strong>执行提示</strong><p id="executionTip">每组结束时保留 2–3 次余力，动作质量优先于重量。</p></div>
-            </div>
-          </aside>
-          <div class="week-board">
-            <div class="week-board-top">
-              <span>WEEKLY FLOW</span>
-              <span id="weekRange">本周</span>
-            </div>
-            <div class="schedule-list" id="scheduleList"></div>
-          </div>
-        </div>
-      </section>
+          <section class="view" id="view-workout" data-view-panel="workout">
+            <div class="view-header"><div><p class="kicker">02 / TRAINING PLAN</p><h1>一周训练，<br /><em>清清楚楚。</em></h1><p class="view-intro">点击任意一天，查看完整动作、组数、次数和休息时间。完成一个动作，就把它勾掉。</p></div><div class="view-header-aside"><span class="label-mono">PROGRAM STATUS</span><strong id="workoutStatus">IN PROGRESS</strong><small id="workoutStatusNote">从今天的第一组开始</small></div></div>
+            <div class="workout-layout"><div class="workout-days" id="workoutDays"></div><div class="workout-detail" id="workoutDetail"></div></div>
+          </section>
 
-      <section class="today-section section-shell">
-        <div class="today-banner">
-          <div>
-            <p class="eyebrow">TODAY'S SESSION</p>
-            <h2 id="todayTitle">今天，先从热身开始。</h2>
-            <p id="todaySubtitle">生成计划后，这里会告诉你今天的具体安排。</p>
-          </div>
-          <div class="today-ring" id="todayRing"><span>0%</span><small>完成度</small></div>
-        </div>
-        <div class="session-grid" id="sessionGrid"></div>
-      </section>
+          <section class="view" id="view-nutrition" data-view-panel="nutrition">
+            <div class="view-header nutrition-header"><div><p class="kicker">03 / NUTRITION LAB</p><h1>每天换一套，<br /><em>吃得有期待。</em></h1><p class="view-intro">按星期准备不同组合。你可以切换日期、换一套菜单，或者只看适合训练前后的餐。</p></div><div class="nutrition-total"><span class="label-mono">DAILY TARGET</span><strong id="nutritionCalories">2,100</strong><small>kcal estimated start</small><div><span id="nutritionProtein">104–130g protein</span><span id="nutritionGoal">for strength</span></div></div></div>
+            <div class="nutrition-toolbar"><div class="date-switcher" id="dateSwitcher"></div><div class="toolbar-actions"><button class="filter-button active" type="button" data-meal-filter="all">全部</button><button class="filter-button" type="button" data-meal-filter="high">高蛋白</button><button class="filter-button" type="button" data-meal-filter="quick">30 分钟内</button><button class="button button-lime" id="shuffleMeals" type="button">换一套菜单 <span>↻</span></button></div></div>
+            <div class="meal-day-intro"><div><span class="label-mono" id="mealDayLabel">SATURDAY / TRAINING DAY</span><h2 id="mealDayTitle">今天的训练日菜单</h2></div><p id="mealDayNote">训练前后优先安排碳水与蛋白质，休息日则让蔬菜和饱腹感更稳定。</p></div>
+            <div class="meal-grid" id="mealGrid"></div>
+          </section>
 
-      <section class="fuel-section section-shell" id="fuel">
-        <div class="split-heading">
-          <div>
-            <p class="eyebrow">03 / FUEL THE WORK</p>
-            <h2>吃得简单，<br /><span>也能很有计划。</span></h2>
-          </div>
-          <div>
-            <p class="section-description">以你的体重和目标估算起始能量与蛋白质，再根据 2 周的体重趋势调整。不是一成不变的“标准答案”。</p>
-            <div class="calorie-callout"><strong id="calorieMetric">2,100</strong><span>kcal / 日估算起点</span></div>
-          </div>
-        </div>
-        <div class="fuel-grid">
-          <div class="meal-image">
-            <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1200&q=88" alt="一份色彩丰富的健康餐" />
-            <div class="meal-image-label">FUEL / 01<br /><strong>MAKE IT NOURISHING</strong></div>
-          </div>
-          <div class="meal-plan">
-            <div class="meal-tabs" role="tablist" aria-label="餐次">
-              <button class="meal-tab active" type="button" data-meal="day1">训练日</button>
-              <button class="meal-tab" type="button" data-meal="day2">休息日</button>
-            </div>
-            <div id="mealList"></div>
-            <p class="meal-note"><span>↳</span> 每餐尽量包含蛋白质、蔬菜或水果，以及一份主食；饮水量可先从 30–35 ml/kg/天开始。</p>
-          </div>
-        </div>
-      </section>
+          <section class="view" id="view-progress" data-view-panel="progress">
+            <div class="view-header"><div><p class="kicker">04 / YOUR PROGRESS</p><h1>把小胜利，<br /><em>变成证据。</em></h1><p class="view-intro">进步不只是一条体重曲线，也包括你愿意回来、完成一组、准备好下一餐。</p></div><div class="big-progress-ring"><div><strong id="progressRingValue">0%</strong><small>THIS WEEK</small></div></div></div>
+            <div class="progress-overview"><div class="progress-score dark-surface"><span class="label-mono">CONSISTENCY SCORE</span><strong id="consistencyScore">0</strong><small>/ 100 points</small><div class="score-track"><span id="scoreTrack"></span></div><p>完成训练、恢复和营养打卡，会让分数持续上升。</p></div><div class="progress-score"><span class="label-mono">TOTAL CHECK-INS</span><strong id="totalCheckins">0</strong><small>days recorded</small><div class="checkin-heatmap" id="checkinHeatmap"></div><p id="progressMessage">第一笔记录，会让这张图开始有颜色。</p></div><div class="progress-score coral-surface"><span class="label-mono">NEXT MILESTONE</span><strong id="nextMilestone">3</strong><small>days to unlock</small><div class="milestone-icon">✦</div><p id="milestoneMessage">完成 3 天，解锁「启动者」徽章。</p></div></div>
+            <div class="progress-lower"><div class="history-panel"><div class="panel-title"><div><span class="label-mono">ACTIVITY RHYTHM</span><h2>最近 7 天</h2></div><span class="panel-caption">training + recovery</span></div><div class="bar-chart" id="barChart"></div></div><div class="achievement-panel"><div class="panel-title"><div><span class="label-mono">ACHIEVEMENTS</span><h2>已解锁的你</h2></div><span class="panel-caption">keeps moving</span></div><div class="achievement-list" id="achievementList"></div></div></div>
+          </section>
 
-      <section class="progress-section section-shell" id="checkin">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">04 / SHOW UP FOR YOURSELF</p>
-            <h2>不是每天满分，<br /><span>是持续出现。</span></h2>
-          </div>
-          <p class="section-description">完成今天的训练或主动恢复，就算一次有效打卡。小步重复，才会真的变成体能。</p>
-        </div>
-        <div class="progress-grid">
-          <div class="streak-panel">
-            <div class="streak-number"><span id="streakCount">0</span><small> DAYS</small></div>
-            <p>当前连续打卡</p>
-            <div class="streak-track"><span id="streakTrack"></span></div>
-            <button class="button button-primary button-wide" id="checkinButton" type="button">完成今日打卡 <span>✓</span></button>
-            <p class="checkin-status" id="checkinStatus">今天还没有打卡，给自己一个小小的确认。</p>
-          </div>
-          <div class="calendar-panel">
-            <div class="calendar-head"><span>THIS WEEK</span><strong id="weekScore">0 / 7</strong></div>
-            <div class="calendar-days" id="calendarDays"></div>
-            <div class="calendar-legend"><span><i class="legend-dot done"></i>已完成</span><span><i class="legend-dot today"></i>今天</span><span><i class="legend-dot"></i>待完成</span></div>
-          </div>
-          <div class="mindset-panel" id="mindset">
-            <div class="quote-mark">“</div>
-            <p class="quote-text" id="quoteText">强度会波动，但你可以把出现这件事变成习惯。</p>
-            <div class="quote-footer"><span id="quoteAuthor">FORGE NOTE / 01</span><button class="small-button" id="quoteButton" type="button">换一句 <span>↻</span></button></div>
-          </div>
-        </div>
-      </section>
+          <section class="view" id="view-profile" data-view-panel="profile">
+            <div class="view-header"><div><p class="kicker">05 / PERSONALIZE</p><h1>你的身体，<br /><em>你的规则。</em></h1><p class="view-intro">改动档案后，FORGE 会重新计算训练频率、动作选择和营养起点。</p></div><div class="profile-note"><span class="label-mono">LOCAL PROFILE</span><strong>已保存在当前浏览器</strong><small>不会上传个人数据</small></div></div>
+            <form class="profile-editor" id="profileForm"><div class="profile-editor-head"><span class="label-mono">PROFILE SETUP</span><span>01 — 08</span></div><div class="editor-grid"><fieldset class="editor-field editor-field-wide"><legend>现在更想做什么？</legend><div class="goal-switch"><label><input type="radio" name="goal" value="strength" checked /><span><b>↗</b><strong>增肌 / 变强</strong><small>建立力量与肌肉线条</small></span></label><label><input type="radio" name="goal" value="fatloss" /><span><b>◒</b><strong>减脂 / 变轻盈</strong><small>保留肌肉，稳定降低体脂</small></span></label></div></fieldset><label class="editor-field"><span>训练经验</span><select name="experience"><option value="new">刚开始 / 还没开始</option><option value="early">1–6 个月</option><option value="steady">6–12 个月</option><option value="advanced">1 年以上</option></select></label><label class="editor-field"><span>每周训练天数</span><select name="days"><option value="3">3 天</option><option value="4" selected>4 天</option><option value="5">5 天</option></select></label><label class="editor-field"><span>每次可用时长</span><select name="duration"><option value="30">30 分钟</option><option value="45" selected>45 分钟</option><option value="60">60 分钟</option></select></label><label class="editor-field"><span>训练环境</span><select name="equipment"><option value="home">居家 / 徒手</option><option value="basic" selected>家用基础器械</option><option value="gym">健身房</option></select></label><label class="editor-field"><span>年龄</span><input name="age" type="number" min="14" max="80" value="28" required /></label><label class="editor-field"><span>身高 / 体重</span><div class="dual-field"><input name="height" type="number" min="120" max="230" value="170" required /><i>cm</i><input name="weight" type="number" min="35" max="250" step="0.1" value="65" required /><i>kg</i></div></label><label class="editor-field"><span>性别（用于能量估算）</span><select name="sex"><option value="female">女性</option><option value="male">男性</option></select></label></div><div class="profile-editor-foot"><p>计划适用于一般健康成人。如有伤病、慢性疾病、孕期或用药情况，请先咨询专业人士。</p><button class="button button-lime" type="submit">保存并重新生成 <span>→</span></button></div></form>
+          </section>
+        </main>
+      </div>
+    </div>
 
-      <section class="method-section section-shell" id="method">
-        <div class="method-copy">
-          <p class="eyebrow">05 / BUILT ON GUIDANCE</p>
-          <h2>有依据，<br /><span>才敢让你坚持。</span></h2>
-          <p>这套工具把公共健康建议与运动营养立场，转译成适合入门者执行的起点。它不替代医生、营养师或教练的个体评估。</p>
-        </div>
-        <div class="source-list">
-          <a href="https://odphp.health.gov/our-work/nutrition-physical-activity/physical-activity-guidelines" target="_blank" rel="noreferrer"><span>01</span><strong>U.S. Physical Activity Guidelines</strong><small>有氧与肌力训练的每周活动基线 ↗</small></a>
-          <a href="https://acsm.org/resistance-training-guidelines-update-2026/" target="_blank" rel="noreferrer"><span>02</span><strong>ACSM Resistance Training Update</strong><small>训练频率、组数与渐进负荷原则 ↗</small></a>
-          <a href="https://pubmed.ncbi.nlm.nih.gov/28642676/" target="_blank" rel="noreferrer"><span>03</span><strong>ISSN Protein & Exercise Position Stand</strong><small>运动人群蛋白质摄入范围 ↗</small></a>
-          <a href="https://www.cdc.gov/healthy-weight-growth/losing-weight/index.html" target="_blank" rel="noreferrer"><span>04</span><strong>CDC Healthy Weight Guidance</strong><small>循序渐进的体重管理原则 ↗</small></a>
-        </div>
-      </section>
-    </main>
-
-    <footer class="site-footer section-shell">
-      <a class="brand" href="#top"><span class="brand-mark">F</span><span>FORGE</span><small>PERSONAL FITNESS OS</small></a>
-      <p>Designed for the version of you that keeps going.</p>
-      <span class="footer-year">© 2026</span>
-    </footer>
+    <nav class="mobile-nav" aria-label="移动端导航"><button class="mobile-nav-item active" type="button" data-view="dashboard"><span>⌂</span><small>总览</small></button><button class="mobile-nav-item" type="button" data-view="workout"><span>↗</span><small>训练</small></button><button class="mobile-nav-item" type="button" data-view="nutrition"><span>◒</span><small>营养</small></button><button class="mobile-nav-item" type="button" data-view="progress"><span>⌁</span><small>进度</small></button><button class="mobile-nav-item" type="button" data-view="profile"><span>◎</span><small>档案</small></button></nav>
+    <div class="modal-backdrop" id="modalBackdrop"></div>
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
     <script src="app.js"></script>
   </body>
