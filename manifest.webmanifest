@@ -1,0 +1,17 @@
+{
+  "name": "FORGE / Local Fitness OS",
+  "short_name": "FORGE",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#101429",
+  "theme_color": "#1a1a2e",
+  "description": "免费、离线可用的个人训练与营养管理工具。",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
